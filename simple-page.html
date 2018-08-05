@@ -1,0 +1,77 @@
+<html>
+    <head>
+	<meta charset="UTF-8"> 
+        <title>i-Educar</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <style>
+            .github-icon {
+                font-size: 70px
+            }
+
+            .star-icon {
+                font-size: 30px;
+                color: white
+            }
+
+            .text-star {
+                font-size: 30px;
+                color: white;
+            }
+
+            .badge-primary {
+                padding-left: 80px;
+                padding-right: 80px;
+                margin-left: 30px;
+                color: #7f0bf7;
+            }
+		.left {
+			float: left;
+		}
+        </style>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script>
+
+	let i = 0;
+
+	setInterval(() => {
+		axios.get('https://api.github.com/repos/portabilis/i-educar?key=' + i + '&access_token=fake-token').then(res => res.data.stargazers_count).then(res => {
+			document.getElementById('stars').innerHTML = res;
+			console.log(document.getElementById('stars'));
+			i++;	
+		});
+	}, 1000);
+		
+	</script>
+    </head>
+    <body>
+        <div style="padding-top: 30px; width: 800px; margin: 0 auto">
+            <center><img style="border: none; width: 500px" src="ieducar-logo.svg"></center>
+            <br>
+            <center>
+                <h1>Apoie a educação pública do Brasil!!!</h1> 
+                <h2>Deixe uma estrela <i class="fa fa-star" ></i> para o projeto e leve uma bala.</h2>
+            </center>
+            <br/>
+	    <div class="left">
+		<img src="qr.jpg" alt="QR" />
+	    </div>
+            <div class="card mx-auto" style="width: 400px; margin-top: 30px">
+		
+                <img class="card-img-top" src="xokleng.png">
+                <div class="card-body">
+                    <i class="fab fa-github github-icon"></i>
+
+                    <span class="badge badge-primary">
+                        <span id="stars" class="text-star">74</span>
+                        <i class="fa fa-star star-icon"></i>
+                    </span>
+                </div>
+            </div>
+            <br>
+            <center> 
+            <h2>https://github.com/portabilis/i-educar</h2>
+            </center>
+        </div>
+    </body>
+</html>
